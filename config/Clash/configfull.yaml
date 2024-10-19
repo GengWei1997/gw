@@ -11,7 +11,7 @@ proxy-providers:
     url: "机场订阅"
       
 # 用于下载订阅时指定UA
-global-ua: clash
+global-ua: clash.meta
     
 # 全局配置
 port: 7890
@@ -181,8 +181,8 @@ rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
 rule-providers: 
   private_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  proxylite: {!!merge <<: *qcy, url: "https://raw.githubusercontent.com/qcyhub/rule/master/ProxyLite.list"}
-  ai: {!!merge <<: *qcy, url: "https://raw.githubusercontent.com/qcyhub/rule/master/AI.list"}
+  proxylite: {!!merge <<: *qcy, url: "https://raw.githubusercontent.com/GengWei1997/gw/refs/heads/main/ProxyLite.list"}
+  ai: {!!merge <<: *qcy, url: "https://raw.githubusercontent.com/GengWei1997/gw/refs/heads/main/AI.list"}
   youtube_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
   google_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   github_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
