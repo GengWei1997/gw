@@ -63,12 +63,6 @@
       "listen_port": 2080,
       "sniff": true,
       "users": []
-    },
-    {
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "tag": "socks-in",
-      "type": "socks"
     }
   ],
 
