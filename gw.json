@@ -2,9 +2,12 @@
   "version": 1,
   "rules": [
     {
-      "domain_suffix": [
+      "domain": [
         "www.wogg.net",
         "wogg.xxooo.cf"
+      ],
+      "domain_suffix": [
+        "aitianhu1.top"
       ]
     }
   ]
