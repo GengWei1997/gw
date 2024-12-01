@@ -104,7 +104,7 @@
     ],
     
     "rule_set": [
-      { "tag": "geosite-gw", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/GengWei1997/gw/refs/heads/main/gw.srs", "download_detour": "🎯 全球直连" },
+      { "tag": "geosite-gw", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/GengWei1997/gw/refs/heads/main/gw.json", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-google", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/google.srs", "download_detour": "🎯 全球直连" },
