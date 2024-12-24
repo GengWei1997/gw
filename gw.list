@@ -4,3 +4,4 @@
 DOMAIN-SUFFIX,www.wogg.net
 DOMAIN-SUFFIX,wogg.xxooo.cf
 DOMAIN-SUFFIX,pool.ntp.org
+IP-CIDR,189.1.223.14/32
