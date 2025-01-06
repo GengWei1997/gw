@@ -5,4 +5,5 @@ DOMAIN-SUFFIX,www.wogg.net
 DOMAIN-SUFFIX,wogg.xxooo.cf
 DOMAIN-SUFFIX,pool.ntp.org
 DOMAIN-SUFFIX,cloudflare.epicgamescdn.com
+DOMAIN-SUFFIX,log.madrabbit.eu.org
 IP-CIDR,189.1.223.14/32
