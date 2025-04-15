@@ -240,7 +240,7 @@ int htc_init(struct htc_target *target)
 	return htc_setup_complete(target);
 }
 
-int htc_connect_service(struct htc_target *target,
+int htc_connect_service_hst(struct htc_target *target,
 		     struct htc_service_connreq *service_connreq,
 		     enum htc_endpoint_id *conn_rsp_epid)
 {
