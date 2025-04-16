@@ -65,8 +65,8 @@ static struct list_head *zstd_alloc_workspace(void)
 		return ERR_PTR(-ENOMEM);
 
 	workspace->size = max_t(size_t,
-			ZSTD_CStreamWorkspaceBound(params.cParams),
-			ZSTD_DStreamWorkspaceBound(ZSTD_BTRFS_MAX_INPUT));
+			ZSTD_estimateCStreamSize(params.cParams.windowLog),
+			ZSTD_estimateDStreamSize(ZSTD_BTRFS_MAX_INPUT));
 	workspace->mem = kvmalloc(workspace->size, GFP_KERNEL);
 	workspace->buf = kmalloc(PAGE_SIZE, GFP_KERNEL);
 	if (!workspace->mem || !workspace->buf)
@@ -108,13 +108,15 @@ static int zstd_compress_pages(struct list_head *ws,
 	*total_in = 0;
 
 	/* Initialize the stream */
-	stream = ZSTD_initCStream(params, len, workspace->mem,
+	stream = ZSTD_initCStream(ZSTD_BTRFS_DEFAULT_LEVEL);
 			workspace->size);
 	if (!stream) {
 		pr_warn("BTRFS: ZSTD_initCStream failed\n");
 		ret = -EIO;
 		goto out;
 	}
+	ZSTD_CCtx_setParameters(stream, &params);
+	ZSTD_CCtx_setPledgedSrcSize(stream, len);
 
 	/* map in the first page of input data */
 	in_page = find_get_page(mapping, start >> PAGE_SHIFT);
@@ -276,8 +278,7 @@ static int zstd_decompress_bio(struct list_head *ws, struct compressed_bio *cb)
 	ZSTD_inBuffer in_buf = { NULL, 0, 0 };
 	ZSTD_outBuffer out_buf = { NULL, 0, 0 };
 
-	stream = ZSTD_initDStream(
-			ZSTD_BTRFS_MAX_INPUT, workspace->mem, workspace->size);
+	stream = ZSTD_initDStream();
 	if (!stream) {
 		pr_debug("BTRFS: ZSTD_initDStream failed\n");
 		ret = -EIO;
